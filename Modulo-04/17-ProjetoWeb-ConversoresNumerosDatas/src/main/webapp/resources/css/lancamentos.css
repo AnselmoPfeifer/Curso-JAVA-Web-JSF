@@ -1,0 +1,184 @@
+@CHARSET "UTF-8";
+
+html {
+	font-family: cursive;
+	font-size: 14px;
+}
+
+body {
+	margin: 0;
+}
+
+.container {
+	padding-right: 20px;
+	padding-left: 20px;
+	margin-right: auto;
+	margin-left: auto;
+}
+
+.btn {
+	padding: 5px;
+	font-size: 16px;
+	color: #fff;
+	background-color: #BABABA;
+	border-color: #E6E2E2;
+	border-radius: 10px;
+}
+
+.btnnovo {
+	background-color: #0EBB31;
+	padding: 5px;
+	font-size: 16px;
+	color: #fff;
+	border-color: #E6E2E2;
+	border-radius: 10px;
+}
+
+.btconsulta {
+	background-color: #F5A40C;
+	padding: 5px;
+	font-size: 16px;
+	color: #fff;
+	border-color: #E6E2E2;
+	border-radius: 10px;
+}
+
+.cabecalho {
+	padding: 10px;
+	background: #746F6F;
+	text-align: center;
+	color: #FFFFFF;
+	text-transform: uppercase;
+}
+
+table {
+	border-spacing: 1;
+	border-collapse: collapse;
+}
+
+.table {
+	border-collapse: collapse !important;
+}
+
+td.tipo {
+	text-align: center;
+}
+
+td.pessoa {
+	text-align: center;
+}
+
+td.descricao {
+	text-align: center;
+}
+
+td.valor {
+	text-align: center;
+}
+
+td.vencimento {
+	text-align: center;
+}
+
+td.pagamento {
+	text-align: center;
+}
+
+td.situacao {
+	text-align: center;
+}
+
+tr.linha1 {
+	background-color: #E6E2E2;
+}
+
+tr.linha2 {
+	background-color: #BABABA;
+}
+
+.form-grid {
+	background-color: #F2F2F2;
+	border-radius: 18px;
+	border: 2px solid #CCCCCC;
+	margin-top: 8px;
+	width: 600px;
+}
+
+.form-grid .label {
+	font-weight: bold;
+	text-align: right;
+	padding: 0px 5px;
+}
+
+.form-grid .campo {
+	padding-right: 5px;
+}
+
+input[type="text"] {
+	padding: 10px;
+	border: solid 1px #dcdcdc;
+	transition: box-shadow 0.3s, border 0.3s;
+}
+
+input[type="text"]:focus {
+	border: solid 1px #707070;
+	box-shadow: 0 0 5px 1px #969696;
+}
+
+
+input[type="checkbox"] { 
+    padding-left:5px;
+    padding-right:5px;
+    border-radius:15px;
+
+    -webkit-appearance:button;
+
+    border: double 2px #00F;
+
+    background-color:#0b0095;
+    color:#FFF;
+    white-space: nowrap;
+    overflow:hidden;
+
+    width:15px;
+    height:15px;
+}
+
+input[type="checkbox"]:checked {
+    background-color:#000;
+    border-left-color:#06F;
+    border-right-color:#06F;
+}
+
+input[type="checkbox"]:hover {
+    box-shadow:0px 0px 10px #1300ff;
+}
+
+
+input[type=radio] {
+    padding-left:5px;
+    padding-right:5px;
+    border-radius:15px;
+
+    -webkit-appearance:button;
+
+    border: double 2px #00F;
+
+    background-color:#0b0095;
+    color:#FFF;
+    white-space: nowrap;
+    overflow:hidden;
+
+    width:15px;
+    height:15px;
+}
+
+input[type=radio]:checked {
+    background-color:#000;
+    border-left-color:#06F;
+    border-right-color:#06F;
+}
+
+input[type=radio]:hover {
+    box-shadow:0px 0px 10px #1300ff;
+}

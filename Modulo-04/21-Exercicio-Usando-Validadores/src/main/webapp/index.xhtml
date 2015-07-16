@@ -1,0 +1,135 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:p="http://xmlns.jcp.org/jsf/passthrough">
+<h:head>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+	<title>21-Exercicio-Usando-Validadores</title>
+	<h:outputStylesheet library="css" name="lancamentos.css" />
+
+</h:head>
+<h:body styleClass="container">
+	<h1 class="cabecalho">Formulario de cadastro de Jogos</h1>
+	<h:form id="frm">
+		<h:panelGrid columns="2" border="0">
+
+			<h:outputLabel value="Data do jogo" />
+			<h:panelGroup>
+				<h:inputText id="dataJogo"
+					value="#{arrecadacaoBean.arrecadacao.dataJogo}"
+					label="Data do Jogo" p:placeholder="Ex:11/11/2015" required="true">
+					<f:convertDateTime pattern="dd/MM/yyyy" />
+				</h:inputText>
+				<h:message for="dataJogo" showDetail="false" showSummary="true" />
+			</h:panelGroup>
+
+			<h:outputLabel value="Times da Casa" />
+			<h:panelGroup>
+				<h:inputText id="timeCasa" p:placeholder="Ex: Gremio"
+					value="#{arrecadacaoBean.arrecadacao.timeCasa}"
+					label="Times da Casa" required="true">
+					<f:validateLength minimum="5" maximum="100"></f:validateLength>
+				</h:inputText>
+				<h:message for="timeCasa" showSummary="true" showDetail="false" />
+			</h:panelGroup>
+
+			<h:outputLabel value="Gols do Time da Casa" />
+			<h:panelGroup>
+				<h:inputText id="golsTimeCasa"
+					value="#{arrecadacaoBean.arrecadacao.golsTimeCasa}"
+					p:placeholder="Ex:7" label="Gols Time Casa" required="true">
+					<f:converter converterId="javax.faces.Integer" />
+					<f:validateLongRange minimum="0" maximum="100" />
+				</h:inputText>
+				<h:message for="golsTimeCasa" showSummary="true" showDetail="false" />
+			</h:panelGroup>
+
+			<h:outputLabel value="Time Visitante" />
+			<h:panelGroup>
+				<h:inputText id="timeVisitante"
+					value="#{arrecadacaoBean.arrecadacao.timeVisitante}"
+					p:placeholder="Ex: Inter" required="true" label="Time Visitante">
+					<f:validateLength minimum="5" maximum="99" />
+				</h:inputText>
+				<h:message for="timeVisitante" showSummary="true" showDetail="false" />
+			</h:panelGroup>
+
+			<h:outputLabel value="Gols do Time Visitante" />
+			<h:panelGroup>
+				<h:inputText id="golsTimesVisitante"
+					value="#{arrecadacaoBean.arrecadacao.golsTimesVisitante}"
+					p:placeholder="Ex:5" label="Gols do Time Visitante" required="true">
+					<f:converter converterId="javax.faces.Integer" />
+					<f:validateLongRange minimum="0" maximum="99" />
+				</h:inputText>
+				<h:message for="golsTimesVisitante" showSummary="true"
+					showDetail="false" />
+			</h:panelGroup>
+
+			<h:outputLabel value="Valor Arrecadado R$: " />
+			<h:panelGroup>
+				<h:inputText id="valorArrecadado"
+					value="#{arrecadacaoBean.arrecadacao.valorArrecadado}"
+					p:placeholder="100,00" label="Valor Arrecadado" required="true">
+					<f:convertNumber minFractionDigits="2" locale="pt_BR" />
+					<f:validateDoubleRange minimum="0.00" />
+				</h:inputText>
+				<h:message for="valorArrecadado" showSummary="true"
+					showDetail="false" />
+			</h:panelGroup>
+
+			<h:panelGroup>
+				<h:outputLabel value="" />
+				<h:commandButton action="#{arrecadacaoBean.incluirLista}"
+					value="Cadastrar" styleClass="btn btnnovo" />
+
+				<h:commandButton action="#{arrecadacaoBean.limpar}" value="Limpar" styleClass="btn" immediate="true"/>
+			</h:panelGroup>
+		</h:panelGrid>
+
+		<h:dataTable var="item" value="#{arrecadacaoBean.listaArrecadacaos}"
+			styleClass="table" rowClasses="linha1, linha2"
+			headerClass="headerTable">
+			<h:column>
+				<f:facet name="header">Data do Jogo</f:facet>
+				<h:outputText value="#{item.dataJogo}">
+					<f:convertDateTime pattern="dd/MM/yyyy" locale="pt_BR" />
+				</h:outputText>
+			</h:column>
+
+			<h:column>
+				<f:facet name="header">Time da Casa</f:facet>
+				<h:outputText value="#{item.timeCasa}" />
+			</h:column>
+
+			<h:column>
+				<f:facet name="header">Gols do Time da Casa</f:facet>
+				<h:outputText value="#{item.golsTimeCasa}" />
+			</h:column>
+
+			<h:column>
+				<f:facet name="header">Time Vizitante</f:facet>
+				<h:outputText value="#{item.timeVisitante}" />
+			</h:column>
+
+			<h:column>
+				<f:facet name="header">Gols do Time Vizitante</f:facet>
+				<h:outputText value="#{item.golsTimesVisitante}" />
+			</h:column>
+
+			<h:column>
+				<f:facet name="header">Valor Arrecadado</f:facet>
+				<h:outputText value="#{item.valorArrecadado}">
+					<f:convertNumber type="currency" currencySymbol="R$" locale="pt_BR" />
+				</h:outputText>
+			</h:column>
+		</h:dataTable>
+
+	</h:form>
+
+</h:body>
+
+</html>

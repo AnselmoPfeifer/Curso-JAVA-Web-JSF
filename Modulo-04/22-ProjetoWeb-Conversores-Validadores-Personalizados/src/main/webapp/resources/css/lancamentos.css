@@ -1,0 +1,89 @@
+@CHARSET "UTF-8";
+
+html {
+	font-family: cursive;
+	font-size: 14px;
+}
+
+body {
+	margin: 0;
+}
+
+.container {
+	padding-right: 20px;
+	padding-left: 20px;
+	margin-right: auto;
+	margin-left: auto;
+}
+
+.btn {
+	padding: 5px;
+	font-size: 16px;
+	color: #fff;
+	background-color: #BABABA;
+	border-color: #E6E2E2;
+	border-radius: 10px;
+}
+
+.btnnovo {
+	background-color: #0EBB31;
+	padding: 5px;
+	font-size: 16px;
+	color: #fff;
+	border-color: #E6E2E2;
+	border-radius: 10px;
+}
+
+.btconsulta {
+	background-color: #F5A40C;
+	padding: 5px;
+	font-size: 16px;
+	color: #fff;
+	border-color: #E6E2E2;
+	border-radius: 10px;
+}
+
+.cabecalho {
+	padding: 10px;
+	background: #746F6F;
+	text-align: center;
+	color: #FFFFFF;
+	text-transform: uppercase;
+}
+
+.linha1 {
+	background-color: #E6E2E2;
+	color: #726F6F;
+}
+
+.linha2 {
+	background-color: #BABABA;
+	color: #726F6F;
+}
+
+.table {
+	background-color: #F2F2F2;
+	border-radius: 5px;
+	border: 2px solid #CCCCCC;
+	margin-top: 8px;
+	padding: 10px;
+	width: 100%;
+	text-align: center;
+}
+
+.headerTable {
+	font-size: 16px;
+	padding: 5px;
+	color: #555353;
+}
+
+input[type="text"] {
+	padding: 10px;
+	border: solid 1px #dcdcdc;
+	transition: box-shadow 0.3s, border 0.3s;
+}
+
+input[type="text"]:focus {
+	border: solid 1px #707070;
+	box-shadow: 0 0 5px 1px #969696;
+}
