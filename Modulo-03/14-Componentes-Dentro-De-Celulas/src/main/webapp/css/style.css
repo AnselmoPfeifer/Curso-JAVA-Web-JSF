@@ -1,0 +1,35 @@
+@CHARSET "UTF-8";
+
+.content {
+	margin: 0 auto;
+	width: 600px;
+	font-family: cursive;
+	font-size: 14px;
+}
+.cabecalho{
+	border-style: solid;
+	padding: 10px;
+	background-color: aqua;
+	font-size: 18px;
+	font-weight: bold;
+	text-align: center;
+}
+h3{
+	background-color:aqua;
+	border-style: double;
+	padding: 7px;
+	text-align: center;
+	}
+
+.submit {
+	padding: 10px;
+	background-color:teal;
+	color: #FFCCFF;
+	border-style:dotted;
+	width: 139px;
+	
+}
+table{
+	width: 600px;
+	border-collapse: collapse;
+}

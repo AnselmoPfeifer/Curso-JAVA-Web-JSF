@@ -1,0 +1,35 @@
+@CHARSET "UTF-8";
+.body {
+	margin: 0 auto;
+	width: 600px;
+}
+
+.logo {
+	display: table-cell;
+	vertical-align: middle;
+}
+
+.texto {
+	color: #E993300;
+}
+
+.vaga {
+	color: red;
+}
+
+.campo {
+	background-color: #CCCCCC;
+	padding: 10px;
+	border-style: double;
+}
+
+.campo:focus {
+	background-color: #999999;
+	border-style: double;
+}
+
+.submit {
+	padding: 10px;
+	background-color: #FF6600;
+	color: #FFCCFF;
+}
