@@ -2,7 +2,8 @@
 ---------------------------------------------------------------------------
 		Pela AlgaWorks /2015	
 ---------------------------------------------------------------------------
-			MODULO 02
+                        MODULO 02
+---------------------------------------------------------------------------
 
 	#01 - Primeiro Projeto web usando JSF
 		Ola Mundo e formulario para soma de valores
@@ -19,11 +20,9 @@
 	#05 - Projeto Web usando JSF
 		com navegação e eventos
 
--------------------------------------------------------------------------
-	 	Final modulo 02
--------------------------------------------------------------------------
-
-			MODULO 03
+---------------------------------------------------------------------------                
+                        MODULO 03
+---------------------------------------------------------------------------
 
 	#06- Projeto Web usando JSF
 		Atributos comuns de componentes 
@@ -58,10 +57,9 @@
 	
 	#16 Projeto Web usando JSF - (maven)
 		Prototipando um projeto web em JSF
-	
--------------------------------------------------------------------------
-                Final modulo 03
--------------------------------------------------------------------------
+---------------------------------------------------------------------------	
+                        MODULO 04
+---------------------------------------------------------------------------
 			MODULO 04
 	#17 Projeto Web usando JSF - (maven)
 		Conversores, Moedas Localização, Numeros, Datas
@@ -81,9 +79,16 @@
 		Exercicio Usando Validadores e limitando valores nos campos
 		Limpando dados da lista e usar o "IMMEDIATE=true" no button "Limpar
 	
-	#22 projeto Web usando JSF - (maven)
+	#22 Projeto Web usando JSF - (maven)
 		Criando Conversos e Validadores Personalizados - 
 		Conversores: Convertendo valor de data em String
 		Ex: Imprimindo na data de hoje o valor "Hoje"
 		Validadores: restringindo cadastro no sistema em Fim de semana
 		07/07/2015
+
+	#23 Projeto Web usando JSF - (maven)
+		Criando Validadores para impedir o cadastro de uma data futura 
+		no campo de data de pagamento (se a conta ja foi paga)
+		Criando Validador Condicional para quando marcar a "conta paga" ser requerido
+		o campo Data de Pagamento. (Obs: o required="true" nao atende).
+	
