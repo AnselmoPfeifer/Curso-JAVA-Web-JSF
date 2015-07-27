@@ -41,6 +41,18 @@
 
 			</h:selectOneMenu>
 
+
+			<h:outputLabel value="Ramo de Atividade" />
+			<h:selectOneMenu value="#{cadastroLancamentoBean.lancamento.pessoa}"
+				required="true" label="Pessoa">
+
+				<f:selectItem itemLabel="Selecione" noSelectionOption="true" />
+
+				<f:selectItems value="#{cadastroLancamentoBean.pessoas}"
+					var="pessoa" itemValue="#{pessoa}" itemLabel="#{pessoa.nome}" />
+
+			</h:selectOneMenu>
+
 			<h:outputLabel value="Descrição" />
 			<h:inputText size="60"
 				value="#{cadastroLancamentoBean.lancamento.descricao}"
@@ -61,22 +73,26 @@
 				<f:convertDateTime pattern="dd/MM/yyyy" />
 			</h:inputText>
 			<h:outputLabel />
-							<h:panelGroup>
-					<h:selectBooleanCheckbox id="pagoCheckbox" value="#{cadastroLancamentoBean.lancamento.pago}"
-						immediate="true" valueChangeListener="#{cadastroLancamentoBean.lancamentoPagoModificado}" 
-						onchange="submit();"/>
-					<h:outputLabel value="Conta paga" for="pagoCheckbox"/>
-				</h:panelGroup>
+			<h:panelGroup>
+				<h:selectBooleanCheckbox id="pagoCheckbox"
+					value="#{cadastroLancamentoBean.lancamento.pago}" immediate="true"
+					valueChangeListener="#{cadastroLancamentoBean.lancamentoPagoModificado}"
+					onchange="submit();" />
+				<h:outputLabel value="Conta paga" for="pagoCheckbox" />
+			</h:panelGroup>
 
-			<h:outputLabel value="Data de pagamento" rendered="#{cadastroLancamentoBean.lancamento.pago}"/>
-				<h:inputText size="12" value="#{cadastroLancamentoBean.lancamento.dataPagamento}" 
-						label="Data de pagamento"
-						rendered="#{cadastroLancamentoBean.lancamento.pago}">
-					<f:convertDateTime pattern="dd/MM/yyyy" />
-					<f:validator validatorId="com.anselmopfeifer.RequeridoCondicional"/>
-					<f:validator validatorId="com.anselmopfeifer.DataFutura"/>
-					<f:attribute name="checado" value="#{cadastroLancamentoBean.lancamento.pago}"/>
-				</h:inputText>
+			<h:outputLabel value="Data de pagamento"
+				rendered="#{cadastroLancamentoBean.lancamento.pago}" />
+			<h:inputText size="12"
+				value="#{cadastroLancamentoBean.lancamento.dataPagamento}"
+				label="Data de pagamento"
+				rendered="#{cadastroLancamentoBean.lancamento.pago}">
+				<f:convertDateTime pattern="dd/MM/yyyy" />
+				<f:validator validatorId="com.anselmopfeifer.RequeridoCondicional" />
+				<f:validator validatorId="com.anselmopfeifer.DataFutura" />
+				<f:attribute name="checado"
+					value="#{cadastroLancamentoBean.lancamento.pago}" />
+			</h:inputText>
 
 			<h:outputLabel />
 			<h:commandButton value="Cadastrar" styleClass="btnnovo"

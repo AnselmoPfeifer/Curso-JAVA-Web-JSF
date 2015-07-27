@@ -1,10 +1,15 @@
 package com.anselmopfeifer.model;
 import java.io.Serializable;
+import java.util.Date;
 
 public class Pessoa implements Serializable {
 
 	private Integer codigo;
 	private String nome;
+	private TipoPessoa tipo;
+	private Date dataNascimento;
+	private String email;
+	private RamoAtividade ramoAtividade;
 	
 	public Pessoa() {
 	}
@@ -14,19 +19,56 @@ public class Pessoa implements Serializable {
 		this.nome = nome;
 	}
 	
+	
+
 	public Integer getCodigo() {
 		return codigo;
 	}
+
 	public void setCodigo(Integer codigo) {
 		this.codigo = codigo;
 	}
+
 	public String getNome() {
 		return nome;
 	}
+
 	public void setNome(String nome) {
 		this.nome = nome;
 	}
-	
+
+	public TipoPessoa getTipo() {
+		return tipo;
+	}
+
+	public void setTipo(TipoPessoa tipo) {
+		this.tipo = tipo;
+	}
+
+	public Date getDataNascimento() {
+		return dataNascimento;
+	}
+
+	public void setDataNascimento(Date dataNascimento) {
+		this.dataNascimento = dataNascimento;
+	}
+
+	public String getEmail() {
+		return email;
+	}
+
+	public void setEmail(String email) {
+		this.email = email;
+	}
+
+	public RamoAtividade getRamoAtividade() {
+		return ramoAtividade;
+	}
+
+	public void setRamoAtividade(RamoAtividade ramoAtividade) {
+		this.ramoAtividade = ramoAtividade;
+	}
+
 	@Override
 	public int hashCode() {
 		final int prime = 31;

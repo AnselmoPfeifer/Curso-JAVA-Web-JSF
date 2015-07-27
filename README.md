@@ -1,4 +1,4 @@
-# Projetos desenvolvidos durante o curso de: "Desenvolvimento Web com JSF 2"
+﻿# Projetos desenvolvidos durante o curso de: "Desenvolvimento Web com JSF 2"
 ---------------------------------------------------------------------------
 		Pela AlgaWorks /2015	
 ---------------------------------------------------------------------------
@@ -78,6 +78,7 @@
 	#21 Projeto Web usando JSF - (maven)
 		Exercicio Usando Validadores e limitando valores nos campos
 		Limpando dados da lista e usar o "IMMEDIATE=true" no button "Limpar
+		Adicionar um validador de Data nao aceitando o cadastro de um jogo para um adata futura.
 	
 	#22 Projeto Web usando JSF - (maven)
 		Criando Conversos e Validadores Personalizados - 
@@ -91,4 +92,5 @@
 		no campo de data de pagamento (se a conta ja foi paga)
 		Criando Validador Condicional para quando marcar a "conta paga" ser requerido
 		o campo Data de Pagamento. (Obs: o required="true" nao atende).
+		Criando um validador para o email para a Class Pessoa.
 	

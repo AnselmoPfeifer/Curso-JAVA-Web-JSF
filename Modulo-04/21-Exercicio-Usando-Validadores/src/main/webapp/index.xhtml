@@ -21,7 +21,9 @@
 				<h:inputText id="dataJogo"
 					value="#{arrecadacaoBean.arrecadacao.dataJogo}"
 					label="Data do Jogo" p:placeholder="Ex:11/11/2015" required="true">
+					<f:validator  validatorId="com.anselmopfeifer.DataFutura"/>
 					<f:convertDateTime pattern="dd/MM/yyyy" />
+					
 				</h:inputText>
 				<h:message for="dataJogo" showDetail="false" showSummary="true" />
 			</h:panelGroup>
