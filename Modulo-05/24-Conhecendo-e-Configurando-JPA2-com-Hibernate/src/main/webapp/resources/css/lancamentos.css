@@ -1,0 +1,54 @@
+td.tipo {
+	text-align: center;
+}
+
+td.pessoa {
+	text-align: center;
+}
+
+td.descricao {
+	text-align: center;
+}
+
+td.valor {
+	text-align: center;
+}
+
+td.vencimento {
+	text-align: center;
+}
+
+td.pagamento {
+	text-align: center;
+}
+
+td.situacao {
+	text-align: center;
+}
+
+tr.linha1 {
+	background-color: #E6E2E2;
+}
+
+tr.linha2 {
+	background-color: #BABABA;
+}
+
+.form-grid {
+	background-color: #F2F2F2;
+	border-radius: 18px;
+	border: 2px solid #CCCCCC;
+	margin-top: 8px;
+	width: 600px;
+}
+
+.form-grid .label {
+	font-weight: bold;
+	text-align: right;
+	padding: 0px 5px;
+}
+
+.form-grid .campo {
+	padding-right: 5px;
+}
+

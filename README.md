@@ -60,7 +60,7 @@
 ---------------------------------------------------------------------------	
                         MODULO 04
 ---------------------------------------------------------------------------
-			MODULO 04
+			
 	#17 Projeto Web usando JSF - (maven)
 		Conversores, Moedas Localização, Numeros, Datas
 
@@ -94,3 +94,6 @@
 		o campo Data de Pagamento. (Obs: o required="true" nao atende).
 		Criando um validador para o email para a Class Pessoa.
 	
+---------------------------------------------------------------------------	
+                        MODULO 05
+---------------------------------------------------------------------------
