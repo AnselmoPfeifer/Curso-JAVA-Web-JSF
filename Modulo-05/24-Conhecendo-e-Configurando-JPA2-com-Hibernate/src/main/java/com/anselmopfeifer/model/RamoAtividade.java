@@ -1,5 +1,12 @@
 package com.anselmopfeifer.model;
 
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
+import javax.persistence.Table;
+
+@Entity
+@Table(name="ramoatividade")
 public class RamoAtividade {
 	private Integer codigo;
 	private String descricao;
@@ -13,6 +20,8 @@ public class RamoAtividade {
 		this.descricao = descricao;
 	}
 
+	@Id
+	@GeneratedValue
 	public Integer getCodigo() {
 		return codigo;
 	}

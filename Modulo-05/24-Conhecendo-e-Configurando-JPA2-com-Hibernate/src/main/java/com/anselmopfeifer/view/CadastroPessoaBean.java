@@ -31,7 +31,7 @@ public class CadastroPessoaBean implements Serializable {
 
     public void verificaTipo(ValueChangeEvent event){
         this.pessoa.setTipo((TipoPessoa) event.getNewValue());
-        this.pessoa.setDataNascimento(null);
+        //this.pessoa.setDataNascimento(null);
         this.pessoa.setRamoAtividade(new RamoAtividade());
 
         //pula todasa as validações e rederiza tela
@@ -42,7 +42,7 @@ public class CadastroPessoaBean implements Serializable {
 		System.out.println("Tipo: " + this.pessoa.getTipo());
 		System.out.println("Pessoa: " + this.pessoa.getNome());
 		System.out.println("Email: " + this.pessoa.getEmail());
-		System.out.println("Data nascimento: " + this.pessoa.getDataNascimento());
+		//System.out.println("Data nascimento: " + this.pessoa.getDataNascimento());
 		System.out.println("Ramo de Atividade: " + this.pessoa.getRamoAtividade());
 		
 		this.pessoa = new Pessoa();

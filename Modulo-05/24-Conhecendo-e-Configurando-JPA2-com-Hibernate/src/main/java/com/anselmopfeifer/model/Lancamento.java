@@ -2,10 +2,24 @@ package com.anselmopfeifer.model;
 import java.io.Serializable;
 import java.math.BigDecimal;
 import java.util.Date;
-import com.anselmopfeifer.model.Pessoa;
 
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.EnumType;
+import javax.persistence.Enumerated;
+import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
+import javax.persistence.Table;
+
+
+@Entity
+@Table(name="lancamento")
 public class Lancamento implements Serializable {
 
+	private static final long serialVersionUID = -5658501115731842909L;
+	
 	private Integer codigo;
 	private TipoLancamento tipo;
 	private Pessoa pessoa;
@@ -15,48 +29,65 @@ public class Lancamento implements Serializable {
 	private boolean pago;
 	private Date dataPagamento;
 	
+	@Id
+	@GeneratedValue
 	public Integer getCodigo() {
 		return codigo;
 	}
 	public void setCodigo(Integer codigo) {
 		this.codigo = codigo;
 	}
+	
+	@Enumerated(EnumType.STRING)
 	public TipoLancamento getTipo() {
 		return tipo;
 	}
 	public void setTipo(TipoLancamento tipo) {
 		this.tipo = tipo;
 	}
+	
+	@ManyToOne
+	@JoinColumn(name="codigo_pessoa")
 	public Pessoa getPessoa() {
 		return pessoa;
 	}
 	public void setPessoa(Pessoa pessoa) {
 		this.pessoa = pessoa;
 	}
+	
+	@Column(name="descricao")
 	public String getDescricao() {
 		return descricao;
 	}
 	public void setDescricao(String descricao) {
 		this.descricao = descricao;
 	}
+	
+	@Column(name="valor")
 	public BigDecimal getValor() {
 		return valor;
 	}
 	public void setValor(BigDecimal valor) {
 		this.valor = valor;
 	}
+	
+	@Column(name="data_vencimento")
 	public Date getDataVencimento() {
 		return dataVencimento;
 	}
 	public void setDataVencimento(Date dataVencimento) {
 		this.dataVencimento = dataVencimento;
 	}
+	
+	@Column(name="pago")
 	public boolean isPago() {
 		return pago;
 	}
 	public void setPago(boolean pago) {
 		this.pago = pago;
 	}
+	
+	@Column(name="data_pagamento")
 	public Date getDataPagamento() {
 		return dataPagamento;
 	}
