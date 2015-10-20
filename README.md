@@ -56,9 +56,10 @@
 	#20 - Usando validadores & Customizando mais mensagens de erro, 
 				Limpando dados da lista e usar o "IMMEDIATE=true" no button "Limpar"
 			
-	#21 - 	Exercicio Usando Validadores e limitando valores nos campos 	
-				Limpando dados da lista e usar o "IMMEDIATE=true" no button "Limpar
-				Adicionar um validador de Data nao aceitando o cadastro de um jogo para um adata futura.
+	#21 - 	Usando Validadores e limitando valores nos campos	
+				Limpando dados da lista e usar o "IMMEDIATE=true" 
+				no button "Limpar, Adicionar um validador de Data nao 
+				aceitando o cadastro de um jogo para um adata futura.
 	
 	#22 - Criando Conversos e Validadores Personalizados 
 				Conversores: Convertendo valor de data em String
