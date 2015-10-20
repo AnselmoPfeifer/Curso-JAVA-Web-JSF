@@ -1,4 +1,4 @@
-﻿# Projetos desenvolvidos durante o curso de: "Desenvolvimento Web com JSF 2"
+﻿# Projetos desenvolvidos no curso de: "Desenvolvimento Web com JSF 2"
 ---------------------------------------------------------------------------
 		Pela AlgaWorks /2015	
 ---------------------------------------------------------------------------
