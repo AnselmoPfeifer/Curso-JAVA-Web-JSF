@@ -1,9 +1,9 @@
 package com.anselmopfeifer.model;
 
 public enum TipoPessoa {
-	FISICA("Física"), 
+	FISICA("Fisica"), 
 	JURIDICA("Juridica");
-
+	
 	private String descricao;
 
 	TipoPessoa(String descricao) {

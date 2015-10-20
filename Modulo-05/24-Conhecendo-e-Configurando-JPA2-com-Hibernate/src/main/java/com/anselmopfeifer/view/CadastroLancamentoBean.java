@@ -1,5 +1,4 @@
 package com.anselmopfeifer.view;
-
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
@@ -11,33 +10,48 @@ import javax.faces.bean.ViewScoped;
 import javax.faces.context.FacesContext;
 import javax.faces.event.ValueChangeEvent;
 
+import org.hibernate.Session;
+import org.hibernate.Transaction;
+import org.hibernate.criterion.Order;
+
 import com.anselmopfeifer.model.Lancamento;
 import com.anselmopfeifer.model.Pessoa;
 import com.anselmopfeifer.model.TipoLancamento;
-import com.anselmopfeifer.service.GestaoPessoas;
-import com.sun.faces.application.ValueBindingValueExpressionAdapter;
+import com.anselmopfeifer.util.HibernateUtil;
 
 @ManagedBean
 @ViewScoped
 public class CadastroLancamentoBean implements Serializable {
-	
+
 	private List<Pessoa> pessoas = new ArrayList<Pessoa>();
 	private Lancamento lancamento = new Lancamento();
 
+	@SuppressWarnings("unchecked")
 	@PostConstruct
 	public void init() {
-		GestaoPessoas gestaoPessoas = new GestaoPessoas();
-		this.pessoas = gestaoPessoas.listarTodas();
+		Session session = HibernateUtil.getSession();
+		
+		this.pessoas = session.createCriteria(Pessoa.class)
+				.addOrder(Order.asc("nome"))
+				.list();
+		
+		session.close();
+	}
+	
+	public void lancamentoPagoModificado(ValueChangeEvent event) {
+		this.lancamento.setPago((Boolean) event.getNewValue());
+		this.lancamento.setDataPagamento(null);
+		FacesContext.getCurrentInstance().renderResponse();
 	}
 	
 	public void cadastrar() {
-		System.out.println("Tipo: " + this.lancamento.getTipo());
-		System.out.println("Pessoa: " + this.lancamento.getPessoa().getNome());
-		System.out.println("Descrição: " + this.lancamento.getDescricao());
-		System.out.println("Valor: " + this.lancamento.getValor());
-		System.out.println("Data vencimento: " + this.lancamento.getDataVencimento());
-		System.out.println("Conta paga: " + this.lancamento.isPago());
-		System.out.println("Data pagamento: " + this.lancamento.getDataPagamento());
+		Session session = HibernateUtil.getSession();
+		Transaction trx = session.beginTransaction();
+		
+		session.merge(this.lancamento);
+		
+		trx.commit();
+		session.close();
 
 		this.lancamento = new Lancamento();
 		
@@ -45,13 +59,6 @@ public class CadastroLancamentoBean implements Serializable {
 		FacesContext.getCurrentInstance().addMessage(null,
 				new FacesMessage(FacesMessage.SEVERITY_INFO, msg, msg));
 	}
-	
-	public void lancamentoPagoModificado(ValueChangeEvent event){
-		this.lancamento.setPago((Boolean) event.getNewValue());
-		this.lancamento.setDataPagamento(null);
-		FacesContext.getCurrentInstance().renderResponse();
-	}
-		
 	
 	public TipoLancamento[] getTiposLancamentos() {
 		return TipoLancamento.values();
@@ -63,4 +70,6 @@ public class CadastroLancamentoBean implements Serializable {
 
 	public List<Pessoa> getPessoas() {
 		return pessoas;
-	}}
+	}
+	
+}

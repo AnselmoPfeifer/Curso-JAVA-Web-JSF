@@ -1,4 +1,5 @@
 package com.anselmopfeifer.model;
+
 import java.io.Serializable;
 import java.math.BigDecimal;
 import java.util.Date;
@@ -13,13 +14,9 @@ import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
-
 @Entity
 @Table(name="lancamento")
 public class Lancamento implements Serializable {
-
-	private static final long serialVersionUID = -5658501115731842909L;
-	
 	private Integer codigo;
 	private TipoLancamento tipo;
 	private Pessoa pessoa;
@@ -55,7 +52,6 @@ public class Lancamento implements Serializable {
 		this.pessoa = pessoa;
 	}
 	
-	@Column(name="descricao")
 	public String getDescricao() {
 		return descricao;
 	}
@@ -63,7 +59,6 @@ public class Lancamento implements Serializable {
 		this.descricao = descricao;
 	}
 	
-	@Column(name="valor")
 	public BigDecimal getValor() {
 		return valor;
 	}
@@ -79,7 +74,6 @@ public class Lancamento implements Serializable {
 		this.dataVencimento = dataVencimento;
 	}
 	
-	@Column(name="pago")
 	public boolean isPago() {
 		return pago;
 	}
@@ -118,5 +112,4 @@ public class Lancamento implements Serializable {
 			return false;
 		return true;
 	}
-	
 }

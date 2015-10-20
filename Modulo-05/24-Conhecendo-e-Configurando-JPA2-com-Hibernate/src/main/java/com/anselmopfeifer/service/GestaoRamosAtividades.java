@@ -5,16 +5,21 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+import org.hibernate.Session;
+import org.hibernate.criterion.Order;
+
 import com.anselmopfeifer.model.RamoAtividade;
+import com.anselmopfeifer.util.HibernateUtil;
 
 public class GestaoRamosAtividades {
 private static Map<Integer, RamoAtividade> atividades = new HashMap<Integer, RamoAtividade>();
 	
-	static {
-		atividades.put(1, new RamoAtividade(1, "Projetos"));
-		atividades.put(2, new RamoAtividade(2, "Suporte"));
-		atividades.put(3, new RamoAtividade(3, "Auditoria"));
-	}
+public void init() {
+	Session session = HibernateUtil.getSession();
+	this.atividades = (Map<Integer, RamoAtividade>) session.createCriteria(RamoAtividade.class).addOrder(Order.asc("descricao")).list();
+	
+	session.close();
+}
 	
 	public List<RamoAtividade> listarTodas() {
 		List<RamoAtividade> atividades = new ArrayList<RamoAtividade>();

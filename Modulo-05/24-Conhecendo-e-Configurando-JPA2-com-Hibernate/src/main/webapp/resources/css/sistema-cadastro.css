@@ -22,6 +22,34 @@ table {
 .table {
 	border-collapse: collapse !important;
 }
+.form-grid {
+	background-color: #f2f2f2;
+	border-radius: 8px;
+	border: 1px solid #cccccc;
+	margin-top: 8px;
+}
+
+.form-grid .label {
+	font-weight: bold;
+	text-align: right;
+	padding: 0px 5px;
+}
+
+.form-grid .campo {
+	padding-right: 5px;
+}
+
+ul.form-messages {
+	padding-left: 20px;
+}
+
+.form-messages .error {
+	color: #e81f1f;
+}
+
+.form-messages .info {
+	color: #156b2a;
+}
 
 input[type="text"]:focus {
 	border: solid 1px #707070;
@@ -36,7 +64,7 @@ input[type="checkbox"] {
 
     border: double 2px #00F;
 
-    background-color:#0b0095;
+    
     color:#FFF;
     white-space: nowrap;
     overflow:hidden;
@@ -48,11 +76,10 @@ input[type="checkbox"] {
 input[type="checkbox"]:checked {
     background-color:#000;
     border-left-color:#06F;
-    border-right-color:#06F;
+    border-right-color:#06F00;
 }
 
 input[type="checkbox"]:hover {
-    box-shadow:0px 0px 10px #1300ff;
 }
 
 
@@ -63,9 +90,9 @@ input[type=radio] {
 
     -webkit-appearance:button;
 
-    border: double 2px #00F;
+    border: double 2px #333333;
 
-    background-color:#0b0095;
+    background-color:#D0D0D0;
     color:#FFF;
     white-space: nowrap;
     overflow:hidden;
@@ -75,9 +102,10 @@ input[type=radio] {
 }
 
 input[type=radio]:checked {
-    background-color:#000;
+    background-color:#339966;
     border-left-color:#06F;
     border-right-color:#06F;
+     border: double 2px #006600;
 }
 
 input[type=radio]:hover {

@@ -23,6 +23,12 @@ public class CadastroPessoaBean implements Serializable {
 	private Pessoa pessoa = new Pessoa();
 	private List<RamoAtividade> atividade = new ArrayList<RamoAtividade>();
 
+	public void pessoaFisicaJuridica(ValueChangeEvent event) {
+		this.pessoa.setTipoPessoa((TipoPessoa) event.getNewValue());
+		FacesContext.getCurrentInstance().renderResponse();
+	}
+
+	
 	@PostConstruct
 	public void init() {
 		GestaoRamosAtividades gestaoAtividades = new GestaoRamosAtividades();
@@ -30,8 +36,8 @@ public class CadastroPessoaBean implements Serializable {
 	}
 
     public void verificaTipo(ValueChangeEvent event){
-        this.pessoa.setTipo((TipoPessoa) event.getNewValue());
-        //this.pessoa.setDataNascimento(null);
+        this.pessoa.setTipoPessoa((TipoPessoa) event.getNewValue());
+        this.pessoa.setDataNascimento(null);
         this.pessoa.setRamoAtividade(new RamoAtividade());
 
         //pula todasa as validações e rederiza tela
@@ -39,10 +45,10 @@ public class CadastroPessoaBean implements Serializable {
     }
     
 	public void cadastrar() {
-		System.out.println("Tipo: " + this.pessoa.getTipo());
+		System.out.println("Tipo: " + this.pessoa.getTipoPessoa());
 		System.out.println("Pessoa: " + this.pessoa.getNome());
 		System.out.println("Email: " + this.pessoa.getEmail());
-		//System.out.println("Data nascimento: " + this.pessoa.getDataNascimento());
+		System.out.println("Data nascimento: " + this.pessoa.getDataNascimento());
 		System.out.println("Ramo de Atividade: " + this.pessoa.getRamoAtividade());
 		
 		this.pessoa = new Pessoa();

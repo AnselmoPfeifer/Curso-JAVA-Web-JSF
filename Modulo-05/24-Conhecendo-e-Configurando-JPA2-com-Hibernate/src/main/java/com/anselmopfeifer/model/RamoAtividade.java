@@ -1,27 +1,36 @@
 package com.anselmopfeifer.model;
 
+import java.io.Serializable;
+
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.Table;
 
 @Entity
-@Table(name="ramoatividade")
-public class RamoAtividade {
+@Table(name = "ramo")
+public class RamoAtividade implements Serializable {
+
+	private static final long serialVersionUID = 1L;
+
+	@Id
+	@GeneratedValue
+	@Column(name="codigo")
 	private Integer codigo;
+	
+	@Column(name="descricao")
 	private String descricao;
-
-	public RamoAtividade() {
-
-	}
 
 	public RamoAtividade(Integer codigo, String descricao) {
 		this.codigo = codigo;
 		this.descricao = descricao;
 	}
 
-	@Id
-	@GeneratedValue
+	public RamoAtividade() {
+	}
+
+	
 	public Integer getCodigo() {
 		return codigo;
 	}
@@ -43,7 +52,8 @@ public class RamoAtividade {
 		final int prime = 31;
 		int result = 1;
 		result = prime * result + ((codigo == null) ? 0 : codigo.hashCode());
-		result = prime * result + ((descricao == null) ? 0 : descricao.hashCode());
+		result = prime * result
+				+ ((descricao == null) ? 0 : descricao.hashCode());
 		return result;
 	}
 
@@ -69,4 +79,5 @@ public class RamoAtividade {
 		return true;
 	}
 
+	
 }

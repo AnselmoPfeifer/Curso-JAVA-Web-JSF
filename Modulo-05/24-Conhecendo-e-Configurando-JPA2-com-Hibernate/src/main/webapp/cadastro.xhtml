@@ -6,8 +6,7 @@
 	xmlns:f="http://java.sun.com/jsf/core">
 <h:head>
 	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-	<title>23-Prototipo-Financeiro-Validadores-Conversores</title>
-	<h:outputStylesheet library="css" name="sistema.css" />
+	<title>Cadastro - 24-Conhecendo o Hibernate</title>
 	<h:outputStylesheet library="css" name="sistema-cadastro.css" />
 	<h:outputStylesheet library="css" name="style.css" />
 
@@ -17,88 +16,72 @@
 	<h:form id="frm">
 		<h:button value="Novo" styleClass="btnnovo" outcome="cadastro" />
 		<h:button value="Consulta" styleClass="btnconsulta" outcome="consulta" />
+
 		<h:messages showDetail="false" showSummary="true"
 			styleClass="form-messages" errorClass="error" infoClass="info" />
+
 		<h:panelGrid columns="2" styleClass="form-grid"
-			columnClasses="label, campo" style="table">
+			columnClasses="label, campo">
+			
+<h:outputLabel value="Tipo"/>
+				<h:selectOneRadio value="#{cadastroLancamentoBean.lancamento.tipo}"
+						required="true" label="Tipo do lançamento">
+					<f:selectItems value="#{cadastroLancamentoBean.tiposLancamentos}"
+						var="tipoLancamento" itemLabel="#{tipoLancamento.descricao}"
+						itemValue="#{tipoLancamento}" />
+				</h:selectOneRadio>
+				
+				<h:outputLabel value="Pessoa"/>
+				<h:selectOneMenu value="#{cadastroLancamentoBean.lancamento.pessoa}"
+						required="true" label="Pessoa">
+					<f:selectItem itemLabel="Selecione" noSelectionOption="true" />
+					<f:selectItems value="#{cadastroLancamentoBean.pessoas}"
+						var="pessoa" itemValue="#{pessoa}" itemLabel="#{pessoa.nome}"/>
+				</h:selectOneMenu>
+				
+				<h:outputLabel value="Descrição"/>
+				<h:inputText size="50" value="#{cadastroLancamentoBean.lancamento.descricao}" 
+					required="true" label="Descrição" />
+					
+				<h:outputLabel value="Valor"/>
+				<h:inputText size="12" value="#{cadastroLancamentoBean.lancamento.valor}" 
+					required="true" label="Valor">
+					<f:convertNumber locale="pt_BR" maxFractionDigits="2" minFractionDigits="2" />
+					<f:validateDoubleRange minimum="0" />
+				</h:inputText>
+				
+				<h:outputLabel value="Data de vencimento" />
+				<h:inputText size="12" value="#{cadastroLancamentoBean.lancamento.dataVencimento}" 
+					required="true" label="Data de vencimento">
+					<f:convertDateTime pattern="dd/MM/yyyy" />
+				</h:inputText>
+				
+				<h:outputLabel/>
+				<h:panelGroup>
+					<h:selectBooleanCheckbox id="pagoCheckbox" value="#{cadastroLancamentoBean.lancamento.pago}"
+						immediate="true" valueChangeListener="#{cadastroLancamentoBean.lancamentoPagoModificado}" 
+						onchange="submit();"/>
+					<h:outputLabel value="Conta paga" for="pagoCheckbox"/>
+				</h:panelGroup>
+				
+				<h:outputLabel value="Data de pagamento" rendered="#{cadastroLancamentoBean.lancamento.pago}"/>
+				<h:inputText size="12" value="#{cadastroLancamentoBean.lancamento.dataPagamento}" 
+						label="Data de pagamento"
+						rendered="#{cadastroLancamentoBean.lancamento.pago}">
+					<f:convertDateTime pattern="dd/MM/yyyy" />
+					<f:validator validatorId="com.anselmopfeifer.RequeridoCondicional"/>
+					<f:validator validatorId="com.anselmopfeifer.DataFutura"/>
+					<f:attribute name="checado" value="#{cadastroLancamentoBean.lancamento.pago}"/>
+				</h:inputText>
+				
+				<h:outputLabel/>
+				<h:commandButton value="Cadastrar" action="#{cadastroLancamentoBean.cadastrar}" />
 
-			<h:outputLabel value="Tipo" />
-			<h:selectOneRadio value="#{cadastroLancamentoBean.lancamento.tipo}"
-				required="true" label="Tipo de Lançamento">
-				<f:selectItems value="#{cadastroLancamentoBean.tiposLancamentos}"
-					var="tipoLancamento" itemLabel="#{tipoLancamento.descricao}"
-					itemValue="#{tipoLancamento}" />
-			</h:selectOneRadio>
-
-			<h:outputLabel value="Pessoa" />
-			<h:selectOneMenu value="#{cadastroLancamentoBean.lancamento.pessoa}"
-				required="true" label="Pessoa">
-
-				<f:selectItem itemLabel="Selecione" noSelectionOption="true" />
-
-				<f:selectItems value="#{cadastroLancamentoBean.pessoas}"
-					var="pessoa" itemValue="#{pessoa}" itemLabel="#{pessoa.nome}" />
-
-			</h:selectOneMenu>
-
-
-			<h:outputLabel value="Ramo de Atividade" />
-			<h:selectOneMenu value="#{cadastroLancamentoBean.lancamento.pessoa}"
-				required="true" label="Pessoa">
-
-				<f:selectItem itemLabel="Selecione" noSelectionOption="true" />
-
-				<f:selectItems value="#{cadastroLancamentoBean.pessoas}"
-					var="pessoa" itemValue="#{pessoa}" itemLabel="#{pessoa.nome}" />
-
-			</h:selectOneMenu>
-
-			<h:outputLabel value="Descrição" />
-			<h:inputText size="60"
-				value="#{cadastroLancamentoBean.lancamento.descricao}"
-				required="true" label="Descrição" />
-
-			<h:outputLabel value="Valor" />
-			<h:inputText size="12"
-				value="#{cadastroLancamentoBean.lancamento.valor}" required="true"
-				label="Valor">
-				<f:convertNumber locale="pt_BR" maxFractionDigits="2"
-					minFractionDigits="2" />
-				<f:validateDoubleRange minimum="0" />
-			</h:inputText>
-			<h:outputLabel value="Data de vencimento" />
-			<h:inputText size="12"
-				value="#{cadastroLancamentoBean.lancamento.dataVencimento}"
-				required="true" label="Data de Vencimento">
-				<f:convertDateTime pattern="dd/MM/yyyy" />
-			</h:inputText>
-			<h:outputLabel />
-			<h:panelGroup>
-				<h:selectBooleanCheckbox id="pagoCheckbox"
-					value="#{cadastroLancamentoBean.lancamento.pago}" immediate="true"
-					valueChangeListener="#{cadastroLancamentoBean.lancamentoPagoModificado}"
-					onchange="submit();" />
-				<h:outputLabel value="Conta paga" for="pagoCheckbox" />
-			</h:panelGroup>
-
-			<h:outputLabel value="Data de pagamento"
-				rendered="#{cadastroLancamentoBean.lancamento.pago}" />
-			<h:inputText size="12"
-				value="#{cadastroLancamentoBean.lancamento.dataPagamento}"
-				label="Data de pagamento"
-				rendered="#{cadastroLancamentoBean.lancamento.pago}">
-				<f:convertDateTime pattern="dd/MM/yyyy" />
-				<f:validator validatorId="com.anselmopfeifer.RequeridoCondicional" />
-				<f:validator validatorId="com.anselmopfeifer.DataFutura" />
-				<f:attribute name="checado"
-					value="#{cadastroLancamentoBean.lancamento.pago}" />
-			</h:inputText>
-
-			<h:outputLabel />
-			<h:commandButton value="Cadastrar" styleClass="btnnovo"
-				action="#{cadastroLancamentoBean.cadastrar}" />
+				
 		</h:panelGrid>
+
 	</h:form>
+
 </h:body>
 
 </html>
