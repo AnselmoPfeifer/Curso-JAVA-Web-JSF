@@ -5,6 +5,6 @@
         <wb-resource deploy-path="/WEB-INF/classes" source-path="/src/main/java"/>
         <wb-resource deploy-path="/WEB-INF/classes" source-path="/src/main/webapp"/>
         <property name="java-output-path" value="/24-Conhecendo-e-Configurando-JPA2-com-Hibernate/target/classes"/>
-        <property name="context-root" value="25-Exclusao-Lançamentos-banco-dados"/>
+        <property name="context-root" value="excluir-lancamentos"/>
     </wb-module>
 </project-modules>
