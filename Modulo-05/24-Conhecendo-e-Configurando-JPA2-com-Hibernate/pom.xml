@@ -2,13 +2,19 @@
 	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
 	<modelVersion>4.0.0</modelVersion>
 	<groupId>com.anselmopfeifer</groupId>
-	<artifactId>24-Conhecendo-e-Configurando-JPA2-com-Hibernate</artifactId>
+	<artifactId>financeiro</artifactId>
 	<version>1.0.0-SNAPSHOT</version>
 	<packaging>war</packaging>
 	<properties>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 	</properties>
 	<build>
+	<resources>
+     <resource>
+       <directory>src/main/java/com/anselmopfeifer/resources</directory>
+     </resource>
+   </resources>
+   
 		<finalName>${project.artifactId}</finalName>
 		<plugins>
 			<plugin>
