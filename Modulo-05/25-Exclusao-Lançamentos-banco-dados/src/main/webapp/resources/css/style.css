@@ -85,3 +85,16 @@ table {
 	border-color: #E6E2E2;
 	border-radius: 5px;
 }
+.error{
+	padding: 7px;
+	background-color: #E51717;
+	color: #FFFFFF;
+	list-style-image:none;
+}
+
+.info{
+	padding: 7px;
+	background-color: #14A42A;
+	color: #FFFFFF;
+	list-style-image:none;
+}
