@@ -80,3 +80,5 @@
 				As telas em xhtml foram integradas com o banco de dados 
 				para cadastrar e  listar os Lançamentos.
 	#25 - Exlusão de Lançamentos do Banco de Dados
+	
+	#26 - Transações e o pattern Open Session in View
