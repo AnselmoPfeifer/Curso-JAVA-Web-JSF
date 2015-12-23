@@ -1,0 +1,8 @@
+<component name="ArtifactManager">
+  <artifact type="war" name="excluir-lancamentos:war">
+    <output-path>$PROJECT_DIR$/target</output-path>
+    <root id="archive" name="excluir-lancamentos.war">
+      <element id="artifact" artifact-name="excluir-lancamentos:war exploded" />
+    </root>
+  </artifact>
+</component>
