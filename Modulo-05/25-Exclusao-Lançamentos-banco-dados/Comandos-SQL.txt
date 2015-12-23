@@ -1,0 +1,10 @@
+show databases;
+create database algaworks_cursojsf;
+use algaworks_cursojsf;
+show tables;
+select * from pessoa;
+select * from lancamento;
+drop database algaworks_cursojsf;
+
+insert into pessoa (nome) value ("Anselmo Pfeifer");
+

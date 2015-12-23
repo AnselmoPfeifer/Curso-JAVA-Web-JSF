@@ -14,7 +14,6 @@
 <h:body styleClass="container">
 	<h1 class="cabecalho">Formulario de cadastro de produtos</h1>
 	<h:form id="frm">
-		<h:button value="Novo" styleClass="btnnovo" outcome="cadastro" />
 		<h:button value="Consulta" styleClass="btnconsulta" outcome="consulta" />
 
 		<h:messages showDetail="false" showSummary="true"
@@ -75,7 +74,8 @@
 				</h:inputText>
 				
 				<h:outputLabel/>
-				<h:commandButton value="Cadastrar" action="#{cadastroLancamentoBean.cadastrar}" />
+				<h:commandButton styleClass="btnnovo" value="Cadastrar" 
+				action="#{cadastroLancamentoBean.cadastrar}" />
 
 				
 		</h:panelGrid>
