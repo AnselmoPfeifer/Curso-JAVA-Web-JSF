@@ -7,36 +7,33 @@ import javax.annotation.PostConstruct;
 import javax.faces.application.FacesMessage;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.ViewScoped;
-import javax.faces.context.ExternalContext;
 import javax.faces.context.FacesContext;
 import javax.faces.event.ValueChangeEvent;
-import javax.servlet.http.HttpServletRequest;
 
 import org.hibernate.Session;
-import org.hibernate.Transaction;
 import org.hibernate.criterion.Order;
 
 import com.anselmopfeifer.model.Lancamento;
 import com.anselmopfeifer.model.Pessoa;
 import com.anselmopfeifer.model.TipoLancamento;
+import com.anselmopfeifer.repository.Pessoas;
+import com.anselmopfeifer.repository.infra.PessoasHibernate;
 import com.anselmopfeifer.util.FacesUtil;
-import com.anselmopfeifer.util.HibernateUtil;
+import com.anselmopfeifer.util.Repositorios;
 
 @ManagedBean
 @ViewScoped
 public class CadastroLancamentoBean implements Serializable {
 
+	private Repositorios repositorios = new Repositorios();
 	private List<Pessoa> pessoas = new ArrayList<Pessoa>();
 	private Lancamento lancamento = new Lancamento();
 
 	@SuppressWarnings("unchecked")
 	@PostConstruct
 	public void init() {
-		Session session = (Session) FacesUtil.getRequestAttribute("session");
-		
-		this.pessoas = session.createCriteria(Pessoa.class)
-				.addOrder(Order.asc("nome"))
-				.list();
+		Pessoas pessoas = this.repositorios.getPessoas();
+		this.pessoas = pessoas.todas();
 			}
 	
 	public void lancamentoPagoModificado(ValueChangeEvent event) {
