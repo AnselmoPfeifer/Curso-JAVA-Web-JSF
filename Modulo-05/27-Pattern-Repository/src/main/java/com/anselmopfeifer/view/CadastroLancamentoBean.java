@@ -10,15 +10,11 @@ import javax.faces.bean.ViewScoped;
 import javax.faces.context.FacesContext;
 import javax.faces.event.ValueChangeEvent;
 
-import org.hibernate.Session;
-import org.hibernate.criterion.Order;
-
 import com.anselmopfeifer.model.Lancamento;
 import com.anselmopfeifer.model.Pessoa;
 import com.anselmopfeifer.model.TipoLancamento;
+import com.anselmopfeifer.repository.Lancamentos;
 import com.anselmopfeifer.repository.Pessoas;
-import com.anselmopfeifer.repository.infra.PessoasHibernate;
-import com.anselmopfeifer.util.FacesUtil;
 import com.anselmopfeifer.util.Repositorios;
 
 @ManagedBean
@@ -43,9 +39,9 @@ public class CadastroLancamentoBean implements Serializable {
 	}
 	
 	public void cadastrar() {
-		Session session = (Session) FacesUtil.getRequestAttribute("session");
-		session.merge(this.lancamento);
-
+		Lancamentos lancamentos = this.repositorios.getLancamento();
+		lancamentos.gardar(this.lancamento);
+		
 		this.lancamento = new Lancamento();
 		
 		String msg = "Cadastro efetuado com sucesso!";
