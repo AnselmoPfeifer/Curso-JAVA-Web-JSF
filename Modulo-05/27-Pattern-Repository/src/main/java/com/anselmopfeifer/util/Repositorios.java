@@ -11,6 +11,7 @@ import com.anselmopfeifer.repository.infra.LancamentosHibernate;
 import com.anselmopfeifer.repository.infra.PessoasHibernate;
 
 public class Repositorios implements Serializable {
+	
 	public Pessoas getPessoas(){
 		return new PessoasHibernate(this.getSession());
 	}

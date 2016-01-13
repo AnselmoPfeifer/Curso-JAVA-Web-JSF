@@ -40,7 +40,7 @@ public class CadastroLancamentoBean implements Serializable {
 	
 	public void cadastrar() {
 		Lancamentos lancamentos = this.repositorios.getLancamento();
-		lancamentos.gardar(this.lancamento);
+		lancamentos.guardar(this.lancamento);
 		
 		this.lancamento = new Lancamento();
 		

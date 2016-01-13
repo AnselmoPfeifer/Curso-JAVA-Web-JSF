@@ -8,8 +8,6 @@ import javax.annotation.PostConstruct;
 import javax.faces.application.FacesMessage;
 import javax.faces.bean.ManagedBean;
 
-import org.hibernate.Session;
-
 import com.anselmopfeifer.model.Lancamento;
 import com.anselmopfeifer.repository.Lancamentos;
 import com.anselmopfeifer.util.FacesUtil;
@@ -26,21 +24,17 @@ public class ConsultaLancamentoBean implements Serializable {
 	@PostConstruct
 	public void inicializar() {
 		Lancamentos lancamentos = this.repositorios.getLancamento();
-		
 		this.lancamentos = lancamentos.todos();
-		
 	}
 
-	
 	public void excluir() {
 		if(this.lancamentoSelecionado.isPago()) {
 			FacesUtil.addMensagem(FacesMessage.SEVERITY_ERROR,
 					"Lançamento já foi pago e nao pode ser excluido!");
 		} else {
-			Session session = (Session) FacesUtil.getRequestAttribute("session");
-			
-			session.delete(lancamentoSelecionado);
-			
+			Lancamentos lancamentos = this.repositorios.getLancamento();
+			lancamentos.remover(this.lancamentoSelecionado);
+						
 			this.inicializar();
 			
 			FacesUtil.addMensagem(FacesMessage.SEVERITY_INFO,"Lançamento Excluido com Sucesso!");

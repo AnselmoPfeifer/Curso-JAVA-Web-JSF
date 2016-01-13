@@ -6,8 +6,10 @@ import com.anselmopfeifer.model.Lancamento;
 
 public interface Lancamentos {
 	
-	public List<Lancamento> todos ();
+
+	public List<Lancamento> todos();
 	
-	public Lancamento gardar(Lancamento lancamento);
+	public Lancamento guardar(Lancamento lancamento);
+	
 	public void remover(Lancamento lancamento);
 }

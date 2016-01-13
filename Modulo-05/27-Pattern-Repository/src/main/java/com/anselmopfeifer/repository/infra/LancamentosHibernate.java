@@ -20,20 +20,20 @@ public class LancamentosHibernate implements Lancamentos {
 	@Override
 	public List<Lancamento> todos() {
 		return session.createCriteria(Lancamento.class)
-				.addOrder(Order.desc("data_lancamento"))
+				.addOrder(Order.desc("dataVencimento"))
 				.list();	
 	}
 
 	@Override
-	public Lancamento gardar(Lancamento lancamento) {
+	public Lancamento guardar(Lancamento lancamento) {
 		return (Lancamento) session.merge(lancamento);
 	}
 
 	@Override
 	public void remover(Lancamento lancamento) {
 		this.session.delete(lancamento);
+		
 	}
-
 	
 
 }
