@@ -15,6 +15,9 @@ import com.anselmopfeifer.model.Pessoa;
 import com.anselmopfeifer.model.TipoLancamento;
 import com.anselmopfeifer.repository.Lancamentos;
 import com.anselmopfeifer.repository.Pessoas;
+import com.anselmopfeifer.service.GestaoLancamentos;
+import com.anselmopfeifer.service.RegraNegocioException;
+import com.anselmopfeifer.util.FacesUtil;
 import com.anselmopfeifer.util.Repositorios;
 
 @ManagedBean
@@ -39,14 +42,15 @@ public class CadastroLancamentoBean implements Serializable {
 	}
 	
 	public void cadastrar() {
-		Lancamentos lancamentos = this.repositorios.getLancamento();
-		lancamentos.guardar(this.lancamento);
-		
-		this.lancamento = new Lancamento();
-		
-		String msg = "Cadastro efetuado com sucesso!";
-		FacesContext.getCurrentInstance().addMessage(null,
-				new FacesMessage(FacesMessage.SEVERITY_INFO, msg, msg));
+		GestaoLancamentos gestaoLancamentos = new GestaoLancamentos(this.repositorios.getLancamento());
+		try {
+			gestaoLancamentos.salvar(lancamento);
+			this.lancamento = new Lancamento();
+			FacesUtil.addMensagem(FacesMessage.SEVERITY_INFO, "Cadastro efetuado com sucesso!");
+		} catch (RegraNegocioException e) {
+			FacesUtil.addMensagem(FacesMessage.SEVERITY_ERROR, e.getMessage());
+		}
+
 	}
 	
 	public TipoLancamento[] getTiposLancamentos() {

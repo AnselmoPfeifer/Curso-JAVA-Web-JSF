@@ -10,6 +10,8 @@ import javax.faces.bean.ManagedBean;
 
 import com.anselmopfeifer.model.Lancamento;
 import com.anselmopfeifer.repository.Lancamentos;
+import com.anselmopfeifer.service.GestaoLancamentos;
+import com.anselmopfeifer.service.RegraNegocioException;
 import com.anselmopfeifer.util.FacesUtil;
 import com.anselmopfeifer.util.Repositorios;
 
@@ -28,20 +30,17 @@ public class ConsultaLancamentoBean implements Serializable {
 	}
 
 	public void excluir() {
-		if(this.lancamentoSelecionado.isPago()) {
+		GestaoLancamentos gestaoLancamentos = new GestaoLancamentos(this.repositorios.getLancamento());
+		try {
+			gestaoLancamentos.excluir(this.lancamentoSelecionado);
+			
+			this.inicializar();
 			FacesUtil.addMensagem(FacesMessage.SEVERITY_ERROR,
 					"Lançamento já foi pago e nao pode ser excluido!");
-		} else {
-			Lancamentos lancamentos = this.repositorios.getLancamento();
-			lancamentos.remover(this.lancamentoSelecionado);
-						
-			this.inicializar();
-			
-			FacesUtil.addMensagem(FacesMessage.SEVERITY_INFO,"Lançamento Excluido com Sucesso!");
+		} catch (RegraNegocioException e) {
+			FacesUtil.addMensagem(FacesMessage.SEVERITY_ERROR, e.getLocalizedMessage());
 		}
-
 	}
-
 	
 	public List<Lancamento> getLancamentos() {
 		return lancamentos;
