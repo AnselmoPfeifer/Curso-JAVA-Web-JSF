@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8"?><project-modules id="moduleCoreId" project-version="1.5.0">
+    <wb-module deploy-name="27-Pattern-Repository">
+        <property name="context-root" value="pattern-repository"/>
+        <property name="java-output-path" value="/27-Pattern-Repository/target/classes"/>
+    </wb-module>
+</project-modules>

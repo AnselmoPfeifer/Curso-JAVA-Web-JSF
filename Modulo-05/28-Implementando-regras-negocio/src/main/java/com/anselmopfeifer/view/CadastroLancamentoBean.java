@@ -13,7 +13,6 @@ import javax.faces.event.ValueChangeEvent;
 import com.anselmopfeifer.model.Lancamento;
 import com.anselmopfeifer.model.Pessoa;
 import com.anselmopfeifer.model.TipoLancamento;
-import com.anselmopfeifer.repository.Lancamentos;
 import com.anselmopfeifer.repository.Pessoas;
 import com.anselmopfeifer.service.GestaoLancamentos;
 import com.anselmopfeifer.service.RegraNegocioException;

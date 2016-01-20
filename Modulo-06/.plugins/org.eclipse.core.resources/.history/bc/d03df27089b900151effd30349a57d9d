@@ -1,0 +1,6 @@
+package com.anselmopfeifer.repository.infra;
+
+public interface Lancamentos {
+	
+
+}

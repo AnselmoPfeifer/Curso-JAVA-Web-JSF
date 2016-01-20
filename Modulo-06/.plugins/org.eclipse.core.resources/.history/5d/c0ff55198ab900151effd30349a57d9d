@@ -1,0 +1,6 @@
+package com.anselmopfeifer.repository;
+
+public interface Lancamentos {
+	
+
+}

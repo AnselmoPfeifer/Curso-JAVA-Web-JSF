@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring comment="Move element &apos;PessoasHibernate.java&apos; to &apos;27-Pattern-Repository/src/main/java/com.anselmopfeifer.repository.infra&apos;&#x0A;- Original project: &apos;27-Pattern-Repository&apos;&#x0A;- Destination element: &apos;27-Pattern-Repository/src/main/java/com.anselmopfeifer.repository.infra&apos;&#x0A;- Original element: &apos;com.anselmopfeifer.repository.PessoasHibernate.java&apos;&#x0A;- Update references to refactored element" description="Move compilation unit" destination="/src\/main\/java&lt;com.anselmopfeifer.repository.infra" element1="/src\/main\/java&lt;com.anselmopfeifer.repository{PessoasHibernate.java" files="0" flags="589830" folders="0" id="org.eclipse.jdt.ui.move" patterns="*" policy="org.eclipse.jdt.ui.moveResources" qualified="false" references="true" stamp="1450915201144" units="1" version="1.0"/>
+</session>

@@ -85,3 +85,10 @@
 	
 	#27 - Pattern Repository
 		
+	#28 - Implementando regras de negócio
+
+---------------------------------------------------------------------------
+                        MODULO 06
+---------------------------------------------------------------------------
+	#29 - Suporte ao metodo GET em cadastro.xhtml
+		Habilitando a edição do Lancamento

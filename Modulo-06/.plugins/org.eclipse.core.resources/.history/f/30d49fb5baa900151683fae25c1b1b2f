@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="UTF-8"?><project-modules id="moduleCoreId" project-version="1.5.0">
+    <wb-module deploy-name="26-Transações-Pattern-Open-Session-in-View">
+        <property name="context-root" value="pattern-open-session"/>
+    </wb-module>
+</project-modules>

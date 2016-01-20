@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<qualifiedTypeNameHistroy>
+<fullyQualifiedTypeName name="com.anselmopfeifer.model.Pessoa"/>
+<fullyQualifiedTypeName name="java.io.Serializable"/>
+<fullyQualifiedTypeName name="com.anselmopfeifer.repository.infra.PessoasHibernate"/>
+<fullyQualifiedTypeName name="com.anselmopfeifer.converter.PessoaConverter"/>
+<fullyQualifiedTypeName name="com.anselmopfeifer.repository.Pessoas"/>
+<fullyQualifiedTypeName name="com.anselmopfeifer.repository.infra.LancamentosHibernate"/>
+<fullyQualifiedTypeName name="org.hibernate.Session"/>
+<fullyQualifiedTypeName name="org.hibernate.criterion.Order"/>
+<fullyQualifiedTypeName name="com.anselmopfeifer.util.Repositorios"/>
+<fullyQualifiedTypeName name="com.anselmopfeifer.repository.Lancamentos"/>
+<fullyQualifiedTypeName name="java.util.List"/>
+<fullyQualifiedTypeName name="java.lang.Integer"/>
+<fullyQualifiedTypeName name="java.lang.String"/>
+<fullyQualifiedTypeName name="com.anselmopfeifer.service.GestaoLancamentos"/>
+<fullyQualifiedTypeName name="com.anselmopfeifer.service.RegraNegocioException"/>
+<fullyQualifiedTypeName name="com.anselmopfeifer.model.Lancamento"/>
+<fullyQualifiedTypeName name="org.hibernate.criterion.Restrictions"/>
+<fullyQualifiedTypeName name="com.anselmopfeifer.util.FacesUtil"/>
+<fullyQualifiedTypeName name="javax.faces.application.FacesMessage"/>
+</qualifiedTypeNameHistroy>
