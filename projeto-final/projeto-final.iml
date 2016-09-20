@@ -17,9 +17,9 @@
     <facet type="hibernate" name="Hibernate">
       <configuration>
         <datasource-map>
-          <unit-entry name="com:anselmopfeifer:resources:hibernate.cfg.xml" />
-          <unit-entry name="hibernate.cfg.xml" />
-          <unit-entry name="src:main:webapp:WEB-INF:classes:hibernate.cfg.xml" />
+          <unit-entry name="com:anselmopfeifer:resources:hibernate.cfg.xml" value="d60a42b7-9b86-4d67-a644-cb634b15714a" />
+          <unit-entry name="hibernate.cfg.xml" value="6c496dbe-8f54-4705-8496-9fb6e3c5258c" />
+          <unit-entry name="src:main:webapp:WEB-INF:classes:hibernate.cfg.xml" value="b114380a-bdcc-42c4-8989-b00d15e3127b" />
         </datasource-map>
         <naming-strategy-map />
         <deploymentDescriptor name="hibernate.cfg.xml" url="file://$MODULE_DIR$/src/main/java/com/anselmopfeifer/resources/hibernate.cfg.xml" />
