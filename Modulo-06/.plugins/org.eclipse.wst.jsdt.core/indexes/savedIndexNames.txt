@@ -1,7 +1,0 @@
-INDEX VERSION 1.3+/Users/anselmo/Documents/Desenvolvimento/workspace/JAVA/AlgaWorks/CURSO-JSF/Modulo-05/.metadata/.plugins/org.eclipse.wst.jsdt.core/indexes
-639873863.index
-3105894651.index
-3402300752.index
-1828360878.index
-3991967727.index
-1156566729.index
