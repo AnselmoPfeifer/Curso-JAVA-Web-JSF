@@ -1,0 +1,106 @@
+<ui:composition template="/template/LayoutPadrao.xhtml"
+				xmlns="http://www.w3.org/1999/xhtml"
+				xmlns:h="http://java.sun.com/jsf/html"
+				xmlns:ui="http://java.sun.com/jsf/facelets"
+				xmlns:f="http://java.sun.com/jsf/core">
+	<f:metadata>
+		<f:viewParam name="codigo" value="#{cadastroLancamentoBean.lancamento}" />
+	</f:metadata>
+
+	<ui:define name="conteudo">
+		<h2 class="text-center text-danger">Formulário</h2>
+		<h:form id="frm">
+			<h:messages showDetail="false" showSummary="true"
+						styleClass="" errorClass="alert-danger alertas" infoClass="alert-info alertas" />
+			<div class="row">
+				<div class="col-xs-12 col-xs-12 col-md-11">
+					<table class="table table-responsive">
+						<tr>
+							<td class="">Tipo do lançamento</td>
+							<td>
+								<h:selectOneMenu value="#{cadastroLancamentoBean.lancamento.tipo}" required="true" styleClass="input-sm">
+										<f:selectItems  value="#{cadastroLancamentoBean.tiposLancamentos}" itemValue="#{tipoLancamento}">
+											<h:outputLabel styleClass="" var="tipoLancamento" itemLabel="#{tipoLancamento.descricao}"/>
+										</f:selectItems>
+								</h:selectOneMenu>
+							</td>
+						</tr>
+
+						<tr>
+							<td class="">Pessoa</td>
+							<td>
+								<h:selectOneMenu value="#{cadastroLancamentoBean.lancamento.pessoa}" styleClass="input-sm"
+												 required="true" label="Pessoa">
+									<f:selectItem itemLabel="Selecione" noSelectionOption="true" />
+									<f:selectItems value="#{cadastroLancamentoBean.pessoas}"
+												   var="pessoa" itemValue="#{pessoa}" itemLabel="#{pessoa.nome}"/>
+								</h:selectOneMenu>
+							</td>
+						</tr>
+
+						<tr>
+							<td class="">Descrição</td>
+							<td>
+								<h:inputText size="60" value="#{cadastroLancamentoBean.lancamento.descricao}" required="true" label="Descrição" styleClass="input-sm"/>
+							</td>
+						</tr>
+
+						<tr>
+							<td class="">Valor</td>
+							<td>
+								<h:inputText size="30" value="#{cadastroLancamentoBean.lancamento.valor}" styleClass="input-sm"
+											 required="true" label="Valor">
+									<f:convertNumber locale="pt_BR" maxFractionDigits="2" minFractionDigits="2" />
+									<f:validateDoubleRange minimum="0" />
+								</h:inputText>
+							</td>
+						</tr>
+
+						<tr>
+							<td class="">Data de vencimento</td>
+							<td>
+								<h:inputText size="30" value="#{cadastroLancamentoBean.lancamento.dataVencimento}" styleClass="input-sm"
+											 required="true" label="Data de vencimento">
+									<f:convertDateTime pattern="dd/MM/yyyy" />
+								</h:inputText>
+							</td>
+						</tr>
+
+						<tr>
+							<td class="">Status</td>
+							<td>
+								<h:panelGroup>
+									<h:selectBooleanCheckbox id="pagoCheckbox" value="#{cadastroLancamentoBean.lancamento.pago}"
+															 immediate="true" valueChangeListener="#{cadastroLancamentoBean.lancamentoPagoModificado}"
+															 onchange="submit();"/>
+									<h:outputLabel styleClass="label-checkbox" value=" Conta paga" for="pagoCheckbox"/>
+								</h:panelGroup>
+
+								<h:panelGroup>
+									<h:inputText size="30" value="#{cadastroLancamentoBean.lancamento.dataPagamento}" styleClass="input-sm"
+												 label="Data de pagamento"  placeholder="Data de pagamento!"
+												 rendered="#{cadastroLancamentoBean.lancamento.pago}">
+										<f:convertDateTime pattern="dd/MM/yyyy" />
+										<f:validator validatorId="com.anselmopfeifer.RequeridoCondicional"/>
+										<f:validator validatorId="com.anselmopfeifer.DataFutura"/>
+										<f:attribute name="checado" value="#{cadastroLancamentoBean.lancamento.pago}"/>
+									</h:inputText>
+								</h:panelGroup>
+							</td>
+						</tr>
+
+						<tr>
+							<td colspan="2">
+								<h:commandButton styleClass="btn btn-primary btn-lg btn-block"
+												 value="Salvar" action="#{cadastroLancamentoBean.salvar}" />
+							</td>
+						</tr>
+					</table>
+				</div>
+			</div>
+		</h:form>
+	</ui:define>
+</ui:composition>
+
+
+

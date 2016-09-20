@@ -1,0 +1,163 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	  xmlns:h="http://java.sun.com/jsf/html"
+	  xmlns:ui="http://java.sun.com/jsf/facelets"
+	  xmlns:f="http://java.sun.com/jsf/core">
+
+<h:head>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+
+	<meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+	<meta name="viewport" content="width=device-width, initial-scale=1"/>
+	<meta name="description" content=""/>
+	<meta name="author" content=""/>
+
+	<h:outputStylesheet library="css" name="bootstrap.min.css" />
+	<h:outputStylesheet library="css" name="theme.css" />
+	<f:metadata>
+		<f:viewParam name="codigo" value="#{cadastroLancamentoBean.lancamento}" />
+	</f:metadata>
+
+	<title>#{cadastroLancamentoBean.editando ? 'Editando lançamento' : 'Novo lançamento'} - Sistema Financeiro</title>
+</h:head>
+<h:body>
+	<nav class="navbar navbar-inverse navbar-fixed-top">
+		<div class="container">
+			<div class="navbar-header">
+				<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+					<span class="sr-only">Toggle navigation</span>
+				</button>
+				<a class="navbar-brand" href="#">U$$</a>
+			</div>
+			<div id="navbar" class="navbar-collapse collapse">
+				<ul class="nav navbar-nav">
+					<li class="active"><a href="#">Home</a></li>
+					<li><a href="cadastro.xhtml">Novo</a></li>
+					<li><a href="consulta.xhtml">Relatório</a></li>
+				</ul>
+			</div>
+		</div>
+	</nav>
+
+	<div class="container theme-showcase" role="main">
+		<div class="row">
+			<div class="jumbotron col-xs-12 col-xs-12 col-md-9">
+				<h1>Financeiro Web</h1>
+				<p>Sistema criado para testes de lançamentos financeiros pessoais.</p>
+			</div>
+
+			<div class="row page-header">
+				<div class="col-xs-12 col-xs-12  col-md-3 text-center">
+					<h2>#{cadastroLancamentoBean.editando ? 'Editando lançamento' : 'Novo lançamento'}</h2>
+					<h:button value="Relatório" styleClass="btn btn-su btn-lg btn-block" outcome="consulta" />
+					<h:button value="Ajuda" styleClass="btn btn-info btn-lg btn-block" outcome="ajuda" />
+				</div>
+			</div>
+		</div>
+
+
+	<h:form id="frm">
+		<h:messages showDetail="false" showSummary="true"
+					styleClass="" errorClass="alert-danger alertas" infoClass="alert-info alertas" />
+		<div class="row">
+			<div class="col-xs-12 col-xs-12 col-md-11">
+				<table class="table table-responsive">
+					<tr>
+						<td class="">Tipo</td>
+						<td>
+							<h:selectOneMenu value="#{cadastroLancamentoBean.lancamento.tipo}" styleClass="form-control"
+											 required="true" label="Tipo do lançamento">
+								<f:selectItems value="#{cadastroLancamentoBean.tiposLancamentos}"
+											   var="tipoLancamento" itemLabel="#{tipoLancamento.descricao}"
+											   itemValue="#{tipoLancamento}" />
+							</h:selectOneMenu>
+						</td>
+					</tr>
+
+					<tr>
+						<td class="">Pessoa</td>
+						<td>
+							<h:selectOneMenu value="#{cadastroLancamentoBean.lancamento.pessoa}" styleClass="form-control"
+											 required="true" label="Pessoa">
+								<f:selectItem itemLabel="Selecione" noSelectionOption="true" />
+								<f:selectItems value="#{cadastroLancamentoBean.pessoas}"
+											   var="pessoa" itemValue="#{pessoa}" itemLabel="#{pessoa.nome}"/>
+							</h:selectOneMenu>
+						</td>
+					</tr>
+
+					<tr>
+						<td class="">Descrição</td>
+						<td>
+							<h:inputText size="50" value="#{cadastroLancamentoBean.lancamento.descricao}"
+										 required="true" label="Descrição" />
+						</td>
+					</tr>
+
+					<tr>
+						<td class="">Valor</td>
+						<td>
+							<h:inputText size="12" value="#{cadastroLancamentoBean.lancamento.valor}"
+										 required="true" label="Valor">
+								<f:convertNumber locale="pt_BR" maxFractionDigits="2" minFractionDigits="2" />
+								<f:validateDoubleRange minimum="0" />
+							</h:inputText>
+						</td>
+					</tr>
+
+					<tr>
+						<td class="">Data de vencimento</td>
+						<td>
+							<h:inputText size="12" value="#{cadastroLancamentoBean.lancamento.dataVencimento}"
+										 required="true" label="Data de vencimento">
+								<f:convertDateTime pattern="dd/MM/yyyy" />
+							</h:inputText>
+						</td>
+					</tr>
+
+					<tr>
+						<td class="">Status</td>
+						<td>
+							<h:panelGroup>
+								<h:selectBooleanCheckbox id="pagoCheckbox" value="#{cadastroLancamentoBean.lancamento.pago}"
+														 immediate="true" valueChangeListener="#{cadastroLancamentoBean.lancamentoPagoModificado}"
+														 onchange="submit();"/>
+								<h:outputLabel value=" Conta paga" for="pagoCheckbox"/>
+							</h:panelGroup>
+						</td>
+					</tr>
+
+					<tr>
+						<td class="">
+							<h:outputLabel rendered="#{cadastroLancamentoBean.lancamento.pago}" value="Data de Pagamento"/>
+						</td>
+						<td>
+							<h:panelGroup>
+								<h:inputText size="12" value="#{cadastroLancamentoBean.lancamento.dataPagamento}"
+											 label="Data de pagamento"
+											 rendered="#{cadastroLancamentoBean.lancamento.pago}">
+									<f:convertDateTime pattern="dd/MM/yyyy" />
+									<f:validator validatorId="com.anselmopfeifer.RequeridoCondicional"/>
+									<f:validator validatorId="com.anselmopfeifer.DataFutura"/>
+									<f:attribute name="checado" value="#{cadastroLancamentoBean.lancamento.pago}"/>
+								</h:inputText>
+							</h:panelGroup>
+						</td>
+					</tr>
+					<tr>
+						<td colspan="2">
+							<h:commandButton styleClass="btn btn-primary btn-lg btn-block"
+											 value="Salvar" action="#{cadastroLancamentoBean.salvar}" />
+						</td>
+					</tr>
+				</table>
+			</div>
+		</div>
+	</h:form>
+
+	</div>
+
+</h:body>
+
+</html>

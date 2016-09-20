@@ -1,0 +1,39 @@
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+                xmlns:h="http://java.sun.com/jsf/html"
+                xmlns:ui="http://java.sun.com/jsf/facelets">
+
+    <nav class="navbar navbar-inverse navbar-fixed-top">
+        <div class="navbar-header menu-topo">
+            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse"
+                    data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+                <span class="sr-only">Toggle navigation</span>
+            </button>
+            <a class="navbar-brand" href="Home.xhtml">R$</a>
+        </div>
+        <div id="navbar" class="navbar-collapse collapse">
+            <ul class="nav navbar-nav">
+                <li class="active"><a href="Home.xhtml">Home</a></li>
+                <li><a href="cadastro.xhtml">Novo</a></li>
+                <li><a href="consulta.xhtml">Relatório</a></li>
+                <li><a href="ajuda.xhtml">Ajuda</a></li>
+            </ul>
+        </div>
+
+    </nav>
+
+    <div class="row">
+        <div class="jumbotron col-xs-12 col-xs-12 col-md-9">
+            <h1>Financeiro Web</h1>
+            <p>Sistema criado para testes de lançamentos financeiros pessoais.</p>
+        </div>
+
+        <div class="row page-header">
+            <div class="col-xs-12 col-xs-12  col-md-3 text-center">
+                <h:button value="Relatório" styleClass="btn btn-success btn-lg btn-block" outcome="consulta" />
+                <h:button value="Cadastro" styleClass="btn btn-info btn-lg btn-block" outcome="cadastro" />
+                <h:button value="Ajuda" styleClass="btn btn-info btn-lg btn-block" outcome="ajuda" />
+            </div>
+        </div>
+    </div>
+
+</ui:composition>

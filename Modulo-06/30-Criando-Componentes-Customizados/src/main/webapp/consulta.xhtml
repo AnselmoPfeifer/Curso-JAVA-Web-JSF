@@ -1,0 +1,103 @@
+﻿<ui:composition template="/template/LayoutPadrao.xhtml"
+				xmlns="http://www.w3.org/1999/xhtml"
+				xmlns:h="http://java.sun.com/jsf/html"
+				xmlns:ui="http://java.sun.com/jsf/facelets"
+				xmlns:f="http://java.sun.com/jsf/core">
+
+	<ui:define name="conteudo">
+		<h2 class="text-center text-danger">Lista dos Lançamentos</h2>
+		<h:form id="frm">
+			<h:messages showDetail="false" showSummary="true"
+						styleClass="" errorClass="alert-danger alertas" infoClass="alert-info alertas" />
+
+			<h:dataTable var="lancamento"
+						 value="#{consultaLancamentoBean.lancamentos}" width="100%"
+						 styleClass="table table-responsive table-bordered" headerClass="active"
+						 rowClasses="" columnClasses="">
+
+				<h:column>
+					<h:graphicImage value="/resources/images/despesa.png"
+									styleClass="icons" rendered="#{lancamento.tipo eq 'DESPESA'}" />
+					<h:graphicImage value="/resources/images/receita.png"
+									styleClass="icons" rendered="#{lancamento.tipo eq 'RECEITA'}" />
+				</h:column>
+
+				<h:column>
+					<f:facet name="header">
+						<small class="text-center">Pessoa</small>
+					</f:facet>
+
+					<h:outputText value="#{lancamento.pessoa.nome}" />
+				</h:column>
+
+				<h:column>
+					<f:facet name="header">
+						<small class="text-center">Descrição</small>
+					</f:facet>
+
+					<h:outputText value="#{lancamento.descricao}" />
+				</h:column>
+
+				<h:column>
+					<f:facet name="header">
+						<small class="text-center">Valor</small>
+					</f:facet>
+
+					<h:outputText value="#{lancamento.valor}"
+								  styleClass="#{lancamento.tipo.toString().toLowerCase()}">
+						<f:convertNumber locale="pt_BR" currencySymbol="R$" type="currency" />
+					</h:outputText>
+				</h:column>
+
+				<h:column>
+					<f:facet name="header">
+						<small class="text-center">Vencimento</small>
+					</f:facet>
+
+					<h:outputText value="#{lancamento.dataVencimento}">
+						<f:convertDateTime pattern="dd/MM/yyyy" />
+					</h:outputText>
+				</h:column>
+
+				<h:column>
+					<f:facet name="header">
+						<small class="text-center">Pagamento</small>
+					</f:facet>
+
+					<h:outputText value="#{lancamento.dataPagamento}">
+						<f:convertDateTime pattern="dd/MM/yyyy" />
+					</h:outputText>
+				</h:column>
+
+				<h:column>
+					<f:facet name="header">
+						<small class="text-center">Situação</small>
+					</f:facet>
+
+					<h:outputText value="Pago" rendered="#{lancamento.pago}" />
+					<h:outputText value="Aberto" rendered="#{not lancamento.pago}" />
+				</h:column>
+
+				<h:column>
+					<h:link outcome="cadastro">
+						<h:graphicImage value="/resources/images/edit.png" width="20"
+										height="20" />
+						<f:param name="codigo" value="#{lancamento.codigo}"/>
+					</h:link>
+
+					<h:commandLink action="#{consultaLancamentoBean.excluir}">
+						<f:setPropertyActionListener value="#{lancamento}"
+													 target="#{consultaLancamentoBean.lancamentoSelecionado}" />
+						<h:graphicImage value="/resources/images/delete.png" width="15"
+										height="15" />
+						<f:ajax render="@form"/>
+					</h:commandLink>
+				</h:column>
+			</h:dataTable>
+		</h:form>
+	</ui:define>
+
+</ui:composition>
+
+
+

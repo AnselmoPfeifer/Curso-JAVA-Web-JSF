@@ -1,0 +1,51 @@
+body {
+  padding-top: 70px;
+  padding-bottom: 30px;
+  color: #333333;
+}
+
+.menu-topo{
+  margin-left: 20px;
+  margin-right: 20px;
+  color: #f5f5f5;
+}
+
+.rodape{
+  text-align: center;
+}
+.label-checkbox{
+  padding-left: 10px;
+  padding-right: 10px;
+}
+.theme-dropdown .dropdown-menu {
+  position: static;
+  display: block;
+  margin-bottom: 20px;
+}
+
+.theme-showcase > p > .btn {
+  margin: 5px 0;
+}
+
+.theme-showcase .navbar .container {
+  width: auto;
+}
+.alertas{
+  padding: 5px;
+  text-align: center;
+}
+.cabecalho{
+  background-color: #333333;
+  color: #f5f5f5;
+}
+.icons{
+  width: 20px;
+  height: 20px;
+}
+.receita {
+  color: #0000ff;
+}
+
+.despesa {
+  color: #c23030;
+}
