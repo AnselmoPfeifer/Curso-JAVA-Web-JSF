@@ -1,41 +1,41 @@
 .table {
     border-spacing: 1px;
-	border-collapse: collapse !important;
+    border-collapse: collapse !important;
 }
 .form-grid {
-	background-color: #f2f2f2;
-	border-radius: 8px;
-	border: 1px solid #cccccc;
-	margin-top: 8px;
+    background-color: #f2f2f2;
+    border-radius: 8px;
+    border: 1px solid #cccccc;
+    margin-top: 8px;
 }
 
 .form-grid .label {
-	font-weight: bold;
-	text-align: right;
-	padding: 0px 5px;
+    font-weight: bold;
+    text-align: right;
+    padding: 0px 5px;
 }
 
 .form-grid .campo {
-	padding-right: 5px;
+    padding-right: 5px;
 }
 
 ul.form-messages {
-	padding-left: 20px;
+    padding-left: 20px;
 }
 
 .form-messages .error {
-	color: #e81f1f;
+    color: #e81f1f;
 }
 
 .form-messages .info {
-	color: #156b2a;
+    color: #156b2a;
 }
 
 input[type="text"]:focus {
-	border: solid 1px #707070;
-	box-shadow: 0 0 5px 1px #969696;
+    border: solid 1px #707070;
+    box-shadow: 0 0 5px 1px #969696;
 }
-input[type="checkbox"] { 
+input[type="checkbox"] {
     padding-left:5px;
     padding-right:5px;
     border-radius:15px;
@@ -44,7 +44,7 @@ input[type="checkbox"] {
 
     border: double 2px #00F;
 
-    
+
     color:#FFF;
     white-space: nowrap;
     overflow:hidden;
@@ -85,7 +85,7 @@ input[type=radio]:checked {
     background-color:#339966;
     border-left-color:#06F;
     border-right-color:#06F;
-     border: double 2px #006600;
+    border: double 2px #006600;
 }
 
 input[type=radio]:hover {

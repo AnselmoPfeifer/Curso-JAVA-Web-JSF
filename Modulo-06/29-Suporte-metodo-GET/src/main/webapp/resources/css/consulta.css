@@ -2,7 +2,7 @@
 	width: 20px;
 	height: 20px;
 }
-td.tipo { 
+td.tipo {
 	width: 20px;
 	text-align: center;
 }
@@ -14,27 +14,27 @@ td.pessoa {
 td.descricao {
 }
 
-td.valor { 
+td.valor {
 	width: 100px;
 	text-align: center;
 }
 
-td.vencimento { 
+td.vencimento {
 	width: 100px;
 	text-align: center;
 }
 
-td.pagamento { 
+td.pagamento {
 	width: 100px;
 	text-align: center;
 }
 
-td.situacao { 
+td.situacao {
 	width: 80px;
 	text-align: center;
 }
 
-td.acoes { 
+td.acoes {
 	width: 40px;
 	text-align: center;
 }
