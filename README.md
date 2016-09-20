@@ -92,3 +92,5 @@
 ---------------------------------------------------------------------------
 	#29 - Suporte ao metodo GET em cadastro.xhtml
 		Habilitando a edição do Lancamento
+	
+	#30 - Criando componentes customizados	
